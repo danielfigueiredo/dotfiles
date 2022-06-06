@@ -28,7 +28,10 @@
       brewfile = true;
       noLock = true;
     };
-    brews = [ "docker-credential-helper-ecr" ];
+    brews = [ 
+      "docker-credential-helper-ecr"
+      "postgresql"
+    ];
     taps = [
       "homebrew/bundle"
       "homebrew/cask"

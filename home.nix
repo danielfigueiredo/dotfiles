@@ -1,5 +1,11 @@
 { config, pkgs, ... }:
 
+let
+  # prevents from bringin in > 2gb of fonts
+  selectedNerdfonts = pkgs.nerdfonts.override {
+    fonts = [ "FiraCode" "FiraMono" ];
+  };
+in
 {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -25,29 +31,37 @@
     git
     gh
     htop
-    nerdfonts
+    selectedNerdfonts
     jq
     ruby_3_0
     nodejs-16_x
+    yarn
   ];
+
+  home.sessionVariables = {
+    EDITOR = "vim";
+    DIRENV_WARN_TIMEOUT = "5m";
+  };
 
   programs = {
     zsh = { 
       enable = true;
       shellAliases = {
         ll = "ls -la";
+        be="bundle exec";
+        # Editor aliases, VS Code is added via home manager
         idea="open -na /Applications/IntelliJ\\ IDEA.app --args";
+        # Git aliases
+        gs="git status";
         gcm="git checkout $(getGitDefaultBranch)";
         grm="git rebase $(getGitDefaultBranch)";
+        gcl="git checkout -";
+        grhh="git reset --hard HEAD";
       };
       enableCompletion = true;
       enableAutosuggestions = true;
       enableSyntaxHighlighting = true;
-      initExtra = ''	      
-        # direnv configs
-        export DIRENV_WARN_TIMEOUT=5m
-
-        # get git repo default branch
+      initExtra = ''
         function getGitDefaultBranch() {
           git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'
         }
