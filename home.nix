@@ -31,10 +31,11 @@ in
     git
     gh
     htop
-    selectedNerdfonts
     jq
-    ruby_3_0
     nodejs-16_x
+    plantuml
+    ruby_3_0
+    selectedNerdfonts
     yarn
   ];
 
