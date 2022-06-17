@@ -13,9 +13,7 @@
     { self, nixpkgs, darwin, home-manager }:
     let
       system = "aarch64-darwin";
-      # pkgs = nixpkgs.legacyPackages.${system};
     in {
-      # devShell.${system} = pkgs.mkShell { buildInputs = [ ]; };
       darwinConfigurations.dfigueiredo177d = darwin.lib.darwinSystem {
         inherit system;
 

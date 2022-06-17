@@ -31,6 +31,7 @@ in
     git
     gh
     htop
+    jdk11
     jq
     nodejs-16_x
     plantuml

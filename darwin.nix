@@ -30,6 +30,7 @@
     };
     brews = [ 
       "docker-credential-helper-ecr"
+      "gifski"
       "postgresql"
     ];
     taps = [
