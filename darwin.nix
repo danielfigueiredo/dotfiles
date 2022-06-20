@@ -21,23 +21,11 @@
   };
 
   homebrew = {
-    enable = true;
     autoUpdate = true;
-    cleanup = "zap";
-    global = {
-      brewfile = true;
-      noLock = true;
-    };
     brews = [ 
       "docker-credential-helper-ecr"
       "gifski"
       "postgresql"
-    ];
-    taps = [
-      "homebrew/bundle"
-      "homebrew/cask"
-      "homebrew/cask-drivers"
-      "homebrew/core"
     ];
     casks = [
       "1password"
@@ -55,6 +43,22 @@
       "vlc"
       "whatsapp"
       "zoom"
+    ];
+    cleanup = "zap";
+    enable = true;
+    extraConfig = ''
+      brew "emacs-mac", args: ["with-native-comp", "with-natural-title-bar"]
+    '';
+    global = {
+      brewfile = true;
+      noLock = true;
+    };
+    taps = [
+      "homebrew/bundle"
+      "homebrew/cask"
+      "homebrew/cask-drivers"
+      "homebrew/core"
+      "railwaycat/emacsmacport"
     ];
   };
 }

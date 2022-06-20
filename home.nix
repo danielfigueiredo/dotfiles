@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   # prevents from bringin in > 2gb of fonts
@@ -24,19 +24,26 @@ in
   # the Home Manager release notes for a list of state version
   # changes in each release.
   home.stateVersion = "22.05";
-  
+
   home.packages = with pkgs; [
+    cmake
+    coreutils
+    discount
     docker
     docker-compose
-    git
+    fd
     gh
     htop
     jdk11
     jq
+    libtool
+    nixfmt
     nodejs-16_x
     plantuml
+    (ripgrep.override { withPCRE2 = true; })
     ruby_3_0
     selectedNerdfonts
+    shellcheck
     yarn
   ];
 
@@ -45,7 +52,42 @@ in
     DIRENV_WARN_TIMEOUT = "5m";
   };
 
+  home.sessionPath = [
+    "${config.home.homeDirectory}/.local/bin"
+    "${config.home.homeDirectory}/.emacs.d/bin"
+  ];
+
+  home.activation = {
+    installDoom = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      DOOM="${config.home.homeDirectory}/.emacs.d"
+      if [ ! -d $DOOM ]; then
+        $DRY_RUN_CMD ${pkgs.git}/bin/git clone --depth 1 https://github.com/doomemacs/doomemacs.git $DOOM
+        $DOOM/bin/doom install
+      fi
+    '';
+  };
+
+  xdg.configFile."shellcheckrc".source = ./shellcheckrc;
+
   programs = {
+    direnv = {
+      enable = true;
+    };
+    git = {
+      enable = true;
+      userName = "Dan Figueiredo";
+      userEmail = "figdann@gmail.com";
+      extraConfig = {
+        fetch.prune = true;
+        init.defaultBranch = "main";
+        push.default = "current";
+        pull.rebase = true;
+      };
+      ignores = [ ".#*" ".DS_Store" ".dir-locals.el" ".idea/" ".vscode/" ".direnv/" ];
+    };
+    home-manager = {
+      enable = true;
+    };
     zsh = { 
       enable = true;
       shellAliases = {
@@ -74,12 +116,6 @@ in
       settings = {
         format = "$all";
       };
-    };
-    direnv = {
-      enable = true;
-    };
-    home-manager = {
-      enable = true;
     };
     vscode = {
       enable = true;
