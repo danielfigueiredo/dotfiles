@@ -26,6 +26,17 @@ in
   home.stateVersion = "22.05";
 
   home.packages = with pkgs; [
+    clj-kondo
+    editorconfig-core-c
+    fontconfig
+    gnuplot
+    nodePackages.js-beautify
+    nodePackages.stylelint
+    emacs28Packages.evil-ediff
+    ktlint
+    libtool
+    ispell
+
     cmake
     coreutils
     discount
@@ -101,6 +112,7 @@ in
         grm="git rebase $(getGitDefaultBranch)";
         gcl="git checkout -";
         grhh="git reset --hard HEAD";
+        wolfman="~/code/ws/wolfman/exe/wolfman";
       };
       enableCompletion = true;
       enableAutosuggestions = true;

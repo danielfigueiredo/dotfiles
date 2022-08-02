@@ -23,6 +23,7 @@
   homebrew = {
     autoUpdate = true;
     brews = [ 
+      "awscli"
       "docker-credential-helper-ecr"
       "gifski"
       "postgresql"
