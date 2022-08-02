@@ -1,0 +1,1 @@
+/Users/dfigueiredo/code/dan/dotfiles/.doom.d

@@ -51,6 +51,8 @@ in
     nixfmt
     nodejs-16_x
     plantuml
+    python39Full
+    poetry
     (ripgrep.override { withPCRE2 = true; })
     ruby_3_0
     selectedNerdfonts

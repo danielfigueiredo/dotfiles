@@ -27,6 +27,7 @@
       "docker-credential-helper-ecr"
       "gifski"
       "postgresql"
+      "pyenv"
     ];
     casks = [
       "1password"
