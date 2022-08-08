@@ -32,6 +32,7 @@
     casks = [
       "1password"
       "1password-cli"
+      "dbeaver-community"
       "docker"
       "discord"
       "firefox"
