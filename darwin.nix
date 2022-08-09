@@ -30,6 +30,7 @@
       "gifski"
       "postgresql"
       "pyenv"
+      "starship"
     ];
     casks = [
       "1password"

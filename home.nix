@@ -85,6 +85,7 @@ in
   xdg.configFile."shellcheckrc".source = ./shellcheckrc;
   xdg.configFile."asdfrc".source = ./asdfrc;
   xdg.configFile."tool-versions".source = ./tool-versions;
+  xdg.configFile."starship.toml".source = ./starship.toml;
 
   programs = {
     git = {
@@ -126,8 +127,7 @@ in
         }
 
         source "''${ASDF_DIR}/asdf.sh"
-
-
+        eval "$(starship init zsh)"
 
         # find a better spot to place these
         # cannot run asdf + direnv via nix as adsf requires to writeable path
@@ -140,12 +140,6 @@ in
           echo "asdf_installed" > $ASDF_CACHE
         fi;
       '';
-    };
-    starship = {
-      enable = true;
-      settings = {
-        format = "$all";
-      };
     };
     vscode = {
       enable = true;
