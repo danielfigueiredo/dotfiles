@@ -58,7 +58,9 @@ in
   home.sessionVariables = {
     EDITOR = "vim";
     DIRENV_WARN_TIMEOUT = "5m";
-    ASDF_CONFIG_FILE = "~/.config/.asdfrc";
+    ASDF_CONFIG_FILE = "${config.home.homeDirectory}/.config/asdfrc";
+    ASDF_DEFAULT_TOOL_VERSIONS_FILENAME = "${config.home.homeDirectory}/.config/tool-versions";
+    ASDF_DIR="/opt/homebrew/opt/asdf/libexec";
   };
 
   home.sessionPath = [
@@ -69,7 +71,7 @@ in
   home.activation = {
     installDoom = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       DOOM="${config.home.homeDirectory}/.emacs.d"
-      if [ ! -d $DOOM ]; then
+      if [ ! -dj $DOOM ]; then
         $DRY_RUN_CMD ${pkgs.git}/bin/git clone --depth 1 https://github.com/doomemacs/doomemacs.git $DOOM
         $DOOM/bin/doom install
       fi
@@ -79,9 +81,10 @@ in
   home.file.".doom.d/init.el".source = ./.doom.d/init.el;
   home.file.".doom.d/packages.el".source = ./.doom.d/packages.el;
   home.file.".doom.d/config.el".source = ./.doom.d/config.el;
-  home.file.".tool-versions".source = ./.tool-versions;
+  home.file.".doom.d/custom.el".source = ./.doom.d/custom.el;
   xdg.configFile."shellcheckrc".source = ./shellcheckrc;
-  xdg.configFile.".asdfrc".source = ./.asdfrc;
+  xdg.configFile."asdfrc".source = ./asdfrc;
+  xdg.configFile."tool-versions".source = ./tool-versions;
 
   programs = {
     git = {
@@ -122,6 +125,10 @@ in
           git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'
         }
 
+        source "''${ASDF_DIR}/asdf.sh"
+
+
+
         # find a better spot to place these
         # cannot run asdf + direnv via nix as adsf requires to writeable path
         ASDF_CACHE="${config.home.homeDirectory}/.asdf_cache"
@@ -132,10 +139,6 @@ in
           asdf plugin add nodejs
           echo "asdf_installed" > $ASDF_CACHE
         fi;
-
-        eval "$(asdf exec direnv hook zsh)"
-        direnv() { asdf exec direnv "$@"; }
-        source "${config.home.homeDirectory}/.bashrc"
       '';
     };
     starship = {
