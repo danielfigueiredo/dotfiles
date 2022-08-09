@@ -22,7 +22,8 @@
 
   homebrew = {
     autoUpdate = true;
-    brews = [ 
+    brews = [
+      "asdf"
       "awscli"
       "docker-credential-helper-ecr"
       "gifski"

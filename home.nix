@@ -36,7 +36,6 @@ in
     ktlint
     libtool
     ispell
-
     cmake
     coreutils
     discount
@@ -49,7 +48,6 @@ in
     jq
     libtool
     nixfmt
-    nodejs-16_x
     plantuml
     python39Full
     poetry
@@ -63,6 +61,7 @@ in
   home.sessionVariables = {
     EDITOR = "vim";
     DIRENV_WARN_TIMEOUT = "5m";
+    ASDF_CONFIG_FILE = "~/.config/.asdfrc";
   };
 
   home.sessionPath = [
@@ -81,11 +80,9 @@ in
   };
 
   xdg.configFile."shellcheckrc".source = ./shellcheckrc;
+  xdg.configFile.".asdfrc".source = ./.asdfrc;
 
   programs = {
-    direnv = {
-      enable = true;
-    };
     git = {
       enable = true;
       userName = "Dan Figueiredo";
@@ -123,6 +120,20 @@ in
         function getGitDefaultBranch() {
           git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'
         }
+
+        # find a better spot to place these
+        # cannot run asdf + direnv via nix as adsf requires to writeable path
+        ASDF_CACHE="${config.home.homeDirectory}/.asdf_cache"
+        if [[ ! -f $ASDF_CACHE ]]; then
+          asdf plugin add direnv
+          asdf install direnv latest
+          asdf global direnv latest
+          asdf plugin add nodejs
+          echo "asdf_installed" > $ASDF_CACHE
+        fi;
+
+        eval "$(asdf exec direnv hook zsh)"
+        direnv() { asdf exec direnv "$@"; }
       '';
     };
     starship = {
