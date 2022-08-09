@@ -34,7 +34,6 @@ in
     nodePackages.stylelint
     emacs28Packages.evil-ediff
     ktlint
-    libtool
     ispell
     cmake
     coreutils
@@ -46,7 +45,6 @@ in
     htop
     jdk11
     jq
-    libtool
     nixfmt
     plantuml
     python39Full
@@ -55,7 +53,6 @@ in
     ruby_3_0
     selectedNerdfonts
     shellcheck
-    yarn
   ];
 
   home.sessionVariables = {
@@ -79,6 +76,10 @@ in
     '';
   };
 
+  home.file.".doom.d/init.el".source = ./.doom.d/init.el;
+  home.file.".doom.d/packages.el".source = ./.doom.d/packages.el;
+  home.file.".doom.d/config.el".source = ./.doom.d/config.el;
+  home.file.".tool-versions".source = ./.tool-versions;
   xdg.configFile."shellcheckrc".source = ./shellcheckrc;
   xdg.configFile.".asdfrc".source = ./.asdfrc;
 
@@ -134,6 +135,7 @@ in
 
         eval "$(asdf exec direnv hook zsh)"
         direnv() { asdf exec direnv "$@"; }
+        source "${config.home.homeDirectory}/.bashrc"
       '';
     };
     starship = {
