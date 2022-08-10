@@ -30,6 +30,7 @@ in
     editorconfig-core-c
     fontconfig
     gnuplot
+    nodejs
     nodePackages.js-beautify
     nodePackages.stylelint
     emacs28Packages.evil-ediff
@@ -40,8 +41,8 @@ in
     discount
     docker
     docker-compose
-    fd
     gh
+    fd
     htop
     jdk11
     jq
