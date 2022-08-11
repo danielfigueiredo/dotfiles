@@ -30,6 +30,7 @@
       "gifski"
       "postgresql"
       "pyenv"
+      "terraform"
       "starship"
     ];
     casks = [
@@ -64,6 +65,7 @@
       "homebrew/cask"
       "homebrew/cask-drivers"
       "homebrew/core"
+      "hashicorp/tap"
       "railwaycat/emacsmacport"
     ];
   };
