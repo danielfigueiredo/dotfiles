@@ -25,6 +25,7 @@
     brews = [
       "asdf"
       "awscli"
+      "ansible"
       "direnv"
       "docker-credential-helper-ecr"
       "gifski"
