@@ -129,17 +129,7 @@ in
 
         source "''${ASDF_DIR}/asdf.sh"
         eval "$(starship init zsh)"
-
-        # find a better spot to place these
-        # cannot run asdf + direnv via nix as adsf requires to writeable path
-        ASDF_CACHE="${config.home.homeDirectory}/.asdf_cache"
-        if [[ ! -f $ASDF_CACHE ]]; then
-          asdf plugin add direnv
-          asdf install direnv latest
-          asdf global direnv latest
-          asdf plugin add nodejs
-          echo "asdf_installed" > $ASDF_CACHE
-        fi;
+        eval "$(direnv hook zsh)"
       '';
     };
     vscode = {
