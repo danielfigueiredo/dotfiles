@@ -28,7 +28,6 @@
       "ansible"
       "direnv"
       "docker-credential-helper-ecr"
-      "fzf"
       "gifski"
       "postgresql"
       "pyenv"

@@ -26,30 +26,31 @@ in
   home.stateVersion = "22.05";
 
   home.packages = with pkgs; [
-    clj-kondo
-    editorconfig-core-c
-    fontconfig
-    gnuplot
-    nodejs
-    nodePackages.js-beautify
-    nodePackages.stylelint
-    emacs28Packages.evil-ediff
-    ktlint
-    ispell
     cmake
     coreutils
+    clj-kondo
     discount
     docker
     docker-compose
-    gh
+    editorconfig-core-c
+    emacs28Packages.evil-ediff
     fd
+    fzf
+    fontconfig
+    gh
+    gnuplot
     htop
+    ispell
     jdk11
     jq
+    ktlint
     nixfmt
+    nodePackages.js-beautify
+    nodePackages.stylelint
+    nodejs
     plantuml
-    python39Full
     poetry
+    python39Full
     (ripgrep.override { withPCRE2 = true; })
     ruby_3_0
     selectedNerdfonts
@@ -127,6 +128,10 @@ in
           git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'
         }
 
+        if [ -n "''${commands[fzf-share]}" ]; then
+           source "$(fzf-share)/key-bindings.zsh"
+           source "$(fzf-share)/completion.zsh"
+        fi
         source "''${ASDF_DIR}/asdf.sh"
         eval "$(starship init zsh)"
         eval "$(direnv hook zsh)"
