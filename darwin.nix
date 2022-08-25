@@ -47,6 +47,7 @@
       "pritunl"
       "slack"
       "spotify"
+      "steam"
       "tuple"
       "vlc"
       "whatsapp"
