@@ -34,13 +34,15 @@
       "asdf"
       "awscli"
       "ansible"
+      "cocoapods"
       "direnv"
       "docker-credential-helper-ecr"
       "gifski"
       "postgresql"
       "pyenv"
-      "terraform"
+      "redis"
       "starship"
+      "terraform"
       {
         name = "emacs-mac";
         args = [
@@ -80,6 +82,7 @@
     casks = [
       "1password"
       "1password-cli"
+      "android-studio"
       "dbeaver-community"
       "docker"
       "discord"
