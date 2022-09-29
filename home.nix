@@ -30,8 +30,6 @@ in
     coreutils
     clj-kondo
     discount
-    docker
-    docker-compose
     editorconfig-core-c
     emacs28Packages.evil-ediff
     fd

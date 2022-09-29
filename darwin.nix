@@ -21,7 +21,15 @@
   };
 
   homebrew = {
-    autoUpdate = true;
+    enable = true;
+    onActivation = {
+      autoUpdate = true;
+      cleanup = "zap";
+      upgrade = true;
+    };
+    global = {
+      brewfile = true;
+    };
     brews = [
       "asdf"
       "awscli"
@@ -33,6 +41,41 @@
       "pyenv"
       "terraform"
       "starship"
+      {
+        name = "emacs-mac";
+        args = [
+          "with-starter"
+          "with-native-comp"
+          "with-mac-metal"
+          "with-xwidgets"
+        ];
+      }
+      # emacs-mac deps are explicitly listed so that others can be removed
+      "m4"
+      "autoconf"
+      "automake"
+      "bdw-gc"
+      "gmp"
+      "isl"
+      "mpfr"
+      "libmpc"
+      "gcc"
+      "gettext"
+      "libtool"
+      "libunistring"
+      "pkg-config"
+      "guile"
+      "libidn2"
+      "libnghttp2"
+      "libtasn1"
+      "nettle"
+      "p11-kit"
+      "unbound"
+      "gnutls"
+      "jansson"
+      "libgccjit"
+      "libxml2"
+      "texinfo"
     ];
     casks = [
       "1password"
@@ -43,7 +86,6 @@
       "firefox"
       "google-chrome"
       "grammarly"
-      "intellij-idea"
       "pritunl"
       "slack"
       "spotify"
@@ -53,15 +95,6 @@
       "whatsapp"
       "zoom"
     ];
-    cleanup = "zap";
-    enable = true;
-    extraConfig = ''
-      brew "emacs-mac", args: ["with-native-comp", "with-natural-title-bar"]
-    '';
-    global = {
-      brewfile = true;
-      noLock = true;
-    };
     taps = [
       "homebrew/bundle"
       "homebrew/cask"
