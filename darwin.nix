@@ -103,6 +103,7 @@
       "homebrew/cask"
       "homebrew/cask-drivers"
       "homebrew/core"
+      "homebrew/services"
       "hashicorp/tap"
       "railwaycat/emacsmacport"
     ];
