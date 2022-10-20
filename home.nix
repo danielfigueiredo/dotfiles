@@ -116,7 +116,6 @@ in
         grm="git rebase $(getGitDefaultBranch)";
         gcl="git checkout -";
         grhh="git reset --hard HEAD";
-        wolfman="~/code/ws/wolfman/exe/wolfman";
       };
       enableCompletion = true;
       enableAutosuggestions = true;
@@ -124,6 +123,16 @@ in
       initExtra = ''
         function getGitDefaultBranch() {
           git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'
+        }
+
+        function wolfman() {
+          pushd /Users/dfigueiredo/code/ws/wolfman
+
+          set +e
+          bin/wolfman $@
+          set -e
+
+          popd
         }
 
         if [ -n "''${commands[fzf-share]}" ]; then
