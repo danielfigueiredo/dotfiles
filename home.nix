@@ -126,13 +126,13 @@ in
         }
 
         function wolfman() {
-          pushd /Users/dfigueiredo/code/ws/wolfman
+          pushd /Users/dfigueiredo/code/ws/wolfman > /dev/null
 
           set +e
           bin/wolfman $@
           set -e
 
-          popd
+          popd > /dev/null
         }
 
         if [ -n "''${commands[fzf-share]}" ]; then

@@ -31,6 +31,7 @@
       brewfile = true;
     };
     brews = [
+      "adr-tools"
       "asdf"
       "awscli"
       "ansible"
