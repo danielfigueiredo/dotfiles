@@ -116,6 +116,7 @@ in
         grm="git rebase $(getGitDefaultBranch)";
         gcl="git checkout -";
         grhh="git reset --hard HEAD";
+        gbpr="branchAndOpenPR";
       };
       enableCompletion = true;
       enableAutosuggestions = true;
@@ -133,6 +134,16 @@ in
           set -e
 
           popd > /dev/null
+        }
+
+        function branchAndOpenPR() {
+          set -e
+
+          git checkout -b $1
+          git add .
+          git commit -m "$2"
+          git push origin $1
+          gh pr create --web
         }
 
         if [ -n "''${commands[fzf-share]}" ]; then
