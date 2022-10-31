@@ -91,6 +91,7 @@
       "google-chrome"
       "grammarly"
       "pritunl"
+      "raycast"
       "slack"
       "spotify"
       "steam"
