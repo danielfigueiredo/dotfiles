@@ -117,6 +117,7 @@ in
         gcl="git checkout -";
         grhh="git reset --hard HEAD";
         gbpr="branchAndOpenPR";
+        gurb="updateMainAndRebaseLastBranch";
       };
       enableCompletion = true;
       enableAutosuggestions = true;
@@ -144,6 +145,15 @@ in
           git commit -m "$2"
           git push origin $1
           gh pr create --web
+        }
+
+        function updateMainAndRebaseLastBranch() {
+          set -e
+
+          git checkout $(getGitDefaultBranch)
+          git pull
+          git checkout -
+          git rebase $(getGitDefaultBranch)
         }
 
         if [ -n "''${commands[fzf-share]}" ]; then
