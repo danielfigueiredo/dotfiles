@@ -26,7 +26,6 @@ in
   home.stateVersion = "22.05";
 
   home.packages = with pkgs; [
-    cmake
     coreutils
     clj-kondo
     discount

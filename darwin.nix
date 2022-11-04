@@ -36,6 +36,7 @@
       "awscli"
       "ansible"
       "cocoapods"
+      "cmake"
       "direnv"
       "docker-credential-helper-ecr"
       "gifski"
