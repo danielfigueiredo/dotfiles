@@ -56,7 +56,7 @@ in
   ];
 
   home.sessionVariables = {
-    EDITOR = "vim";
+    EDITOR = "emacs";
     DIRENV_WARN_TIMEOUT = "5m";
     ASDF_CONFIG_FILE = "${config.home.homeDirectory}/.config/asdfrc";
     ASDF_DEFAULT_TOOL_VERSIONS_FILENAME = "${config.home.homeDirectory}/.config/tool-versions";
