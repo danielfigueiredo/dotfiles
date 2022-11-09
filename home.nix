@@ -52,6 +52,7 @@ in
     ruby_3_0
     selectedNerdfonts
     shellcheck
+    zsh-z
   ];
 
   home.sessionVariables = {
@@ -143,7 +144,7 @@ in
           git add .
           git commit -m "$2"
           git push origin $1
-          gh pr create --web
+          gh pr create --web --draft
         }
 
         function updateMainAndRebaseLastBranch() {
@@ -160,6 +161,8 @@ in
            source "$(fzf-share)/completion.zsh"
         fi
         source "''${ASDF_DIR}/asdf.sh"
+        source "${pkgs.zsh-z}/share/zsh-z/zsh-z.plugin.zsh"
+
         eval "$(starship init zsh)"
         eval "$(direnv hook zsh)"
       '';
