@@ -31,7 +31,6 @@ in
     clj-kondo
     discount
     editorconfig-core-c
-    emacs28Packages.evil-ediff
     fd
     fzf
     fontconfig
@@ -82,7 +81,6 @@ in
   home.file.".doom.d/init.el".source = ./.doom.d/init.el;
   home.file.".doom.d/packages.el".source = ./.doom.d/packages.el;
   home.file.".doom.d/config.el".source = ./.doom.d/config.el;
-  home.file.".doom.d/custom.el".source = ./.doom.d/custom.el;
   xdg.configFile."shellcheckrc".source = ./shellcheckrc;
   xdg.configFile."asdfrc".source = ./asdfrc;
   xdg.configFile."tool-versions".source = ./tool-versions;
