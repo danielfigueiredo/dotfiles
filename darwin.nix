@@ -45,6 +45,7 @@
       "redis"
       "starship"
       "terraform"
+      "terraformer"
       {
         name = "emacs-mac";
         args = [
@@ -92,6 +93,7 @@
       "firefox"
       "google-chrome"
       "grammarly"
+      "notion"
       "raycast"
       "slack"
       "spotify"
