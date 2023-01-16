@@ -40,7 +40,7 @@
       "direnv"
       "docker-credential-helper-ecr"
       "gifski"
-      "postgresql"
+      "postgresql@14"
       "pyenv"
       "redis"
       "starship"
