@@ -87,6 +87,7 @@
       "1password"
       "1password-cli"
       "android-studio"
+      "adobe-acrobat-reader"
       "dbeaver-community"
       "docker"
       "discord"

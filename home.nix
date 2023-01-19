@@ -127,13 +127,13 @@ in
         }
 
         function wolfman() {
+          set +e
           pushd /Users/dfigueiredo/code/ws/wolfman > /dev/null
 
-          set +e
           bin/wolfman $@
-          set -e
 
           popd > /dev/null
+          set -e
         }
 
         function branchAndOpenPR() {
@@ -143,7 +143,7 @@ in
           git add .
           git commit -m "$2"
           git push origin $1
-          gh pr create --web --draft
+          gh pr create --web
         }
 
         function updateMainAndRebaseLastBranch() {
