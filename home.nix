@@ -126,7 +126,7 @@ in
           git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'
         }
 
-        function wolfman() {
+        function wolfman() (
           set +e
           pushd /Users/dfigueiredo/code/ws/wolfman > /dev/null
 
@@ -134,9 +134,9 @@ in
 
           popd > /dev/null
           set -e
-        }
+        )
 
-        function branchAndOpenPR() {
+        function branchAndOpenPR() (
           set -e
 
           git checkout -b $1
@@ -144,16 +144,29 @@ in
           git commit -m "$2"
           git push origin $1
           gh pr create --web
-        }
 
-        function updateMainAndRebaseLastBranch() {
+          set +e
+        )
+
+
+        function addCommitPush() (
+          set -e
+
+          git add .
+          git commit -m "$1"
+          git push origin "$(git rev-parse --abbrev-ref HEAD)"
+
+          set +e
+        )
+
+        function updateMainAndRebaseLastBranch() (
           set -e
 
           git checkout $(getGitDefaultBranch)
           git pull
           git checkout -
           git rebase $(getGitDefaultBranch)
-        }
+        )
 
         if [ -n "''${commands[fzf-share]}" ]; then
            source "$(fzf-share)/key-bindings.zsh"
