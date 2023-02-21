@@ -114,6 +114,7 @@ in
         gcm="git checkout $(getGitDefaultBranch)";
         grm="git rebase $(getGitDefaultBranch)";
         gcl="git checkout -";
+        gcp="addCommitPush";
         grhh="git reset --hard HEAD";
         gbpr="branchAndOpenPR";
         gurb="updateMainAndRebaseLastBranch";
@@ -122,9 +123,9 @@ in
       enableAutosuggestions = true;
       enableSyntaxHighlighting = true;
       initExtra = ''
-        function getGitDefaultBranch() {
+        function getGitDefaultBranch() (
           git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'
-        }
+        )
 
         function wolfman() (
           set +e
