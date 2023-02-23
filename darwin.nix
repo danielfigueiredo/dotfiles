@@ -40,12 +40,14 @@
       "direnv"
       "docker-credential-helper-ecr"
       "gifski"
+      "opa"
       "postgresql@14"
       "pyenv"
       "redis"
       "starship"
       "terraform"
       "terraformer"
+      "tflint"
       {
         name = "emacs-mac";
         args = [

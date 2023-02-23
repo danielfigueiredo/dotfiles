@@ -130,3 +130,9 @@
 (setq
    split-width-threshold 0
    split-height-threshold nil)
+
+;; (use-package rego-mode
+;;   :ensure t
+;;   :custom
+;;   (rego-repl-executable "/opt/homebrew/bin/opa")
+;;   (rego-opa-command "/opt/homebrew/bin/opa"))
