@@ -118,6 +118,7 @@ in
         grhh="git reset --hard HEAD";
         gbpr="branchAndOpenPR";
         gurb="updateMainAndRebaseLastBranch";
+        assume="source assume";
       };
       enableCompletion = true;
       enableAutosuggestions = true;

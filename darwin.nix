@@ -40,6 +40,7 @@
       "direnv"
       "docker-credential-helper-ecr"
       "gifski"
+      "granted"
       "opa"
       "postgresql@14"
       "pyenv"
@@ -47,6 +48,7 @@
       "starship"
       "terraform"
       "terraformer"
+      "terragrunt"
       "tflint"
       {
         name = "emacs-mac";
@@ -107,6 +109,7 @@
       "zoom"
     ];
     taps = [
+      "common-fate/granted"
       "homebrew/bundle"
       "homebrew/cask"
       "homebrew/cask-drivers"
