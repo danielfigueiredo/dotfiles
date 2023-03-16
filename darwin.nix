@@ -42,6 +42,8 @@
       "gifski"
       "granted"
       "k6"
+      "kubectl"
+      "kustomize"
       "opa"
       "postgresql@14"
       "pyenv"
