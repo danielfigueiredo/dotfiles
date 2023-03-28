@@ -128,16 +128,6 @@ in
           git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'
         )
 
-        function wolfman() (
-          set +e
-          pushd /Users/dfigueiredo/code/ws/wolfman > /dev/null
-
-          bin/wolfman $@
-
-          popd > /dev/null
-          set -e
-        )
-
         function branchAndOpenPR() (
           set -e
 
