@@ -18,17 +18,19 @@
   nix.extraOptions = "experimental-features = nix-command flakes";
 
   programs.zsh = {
-    enable = true;
-    enableBashCompletion = false;
-    enableCompletion = false;
     loginShellInit = ''
       eval "$(${config.homebrew.brewPrefix}/brew shellenv)"
-      source "''${ASDF_DIR}/asdf.sh"
-      source "${pkgs.zsh-z}/share/zsh-z/zsh-z.plugin.zsh"
-      eval "$(starship init zsh)"
-      eval "$(direnv hook zsh)"
     '';
-    promptInit = "";
+  };
+
+  system = {
+    defaults = {
+      dock = {
+        autohide = true;
+        show-recents = false;
+        static-only = true;
+      };
+    };
   };
 
   homebrew = {

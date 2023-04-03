@@ -12,23 +12,20 @@
       push.default = "current";
       pull.rebase = true;
     };
-    aliases = {
-      gs = "status";
-      grhh = "reset --hard HEAD";
-      gcm = "checkout $(getGitDefaultBranch)";
-      grm = "rebase $(getGitDefaultBranch)";
-      gcl = "checkout -";
-
-    };
     ignores =
       [ ".#*" ".DS_Store" ".dir-locals.el" ".idea/" ".vscode/" ".direnv/" ];
   };
   programs.zsh = {
     enable = true;
-    enableAutosuggestions = false;
+    enableAutosuggestions = true;
     enableCompletion = true;
     enableSyntaxHighlighting = true;
-    initExtra = builtins.readFile ./zshrc;
+    initExtra = builtins.readFile ./zshrc + ''
+      source "''${ASDF_DIR}/asdf.sh"
+      source "${pkgs.zsh-z}/share/zsh-z/zsh-z.plugin.zsh"
+      eval "$(starship init zsh)"
+      eval "$(direnv hook zsh)"
+    '';
     shellAliases = {
       ll = "ls -la";
       be = "bundle exec";
@@ -36,6 +33,11 @@
       # Editor aliases, VS Code is added via home manager
       idea = "open -na /Applications/IntelliJ\\ IDEA.app --args";
       # Git custom aliases
+      gs = "git status";
+      grhh = "git reset --hard HEAD";
+      gcm = "git checkout $(getGitDefaultBranch)";
+      grm = "git rebase $(getGitDefaultBranch)";
+      gcl = "git checkout -";
       gcp = "addCommitPush";
       gbpr = "branchAndOpenPR";
       gurb = "updateMainAndRebaseLastBranch";
@@ -76,14 +78,5 @@
         "$character"
       ];
     };
-  };
-  programs.vscode = {
-    enable = true;
-    package = pkgs.vscode;
-    extensions = with pkgs.vscode-extensions; [
-      dracula-theme.theme-dracula
-      yzhang.markdown-all-in-one
-      bbenoist.nix
-    ];
   };
 }
