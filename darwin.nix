@@ -4,18 +4,29 @@
 
   nix.configureBuildUsers = true;
 
+  fonts = {
+    fontDir.enable = true;
+    fonts = with pkgs; [
+      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      emacs-all-the-icons-fonts
+      inter
+    ];
+  };
+
   # We use Nix flakes
   # this makes nix.conf be auto-generated
   nix.extraOptions = "experimental-features = nix-command flakes";
 
-  # Ensure nix-darwin configures ZSH with a Nix-aware PATH
-  # this prevents the need to set NIX_PATH and other env vars
   programs.zsh = {
     enable = true;
     enableBashCompletion = false;
     enableCompletion = false;
     loginShellInit = ''
       eval "$(${config.homebrew.brewPrefix}/brew shellenv)"
+      source "''${ASDF_DIR}/asdf.sh"
+      source "${pkgs.zsh-z}/share/zsh-z/zsh-z.plugin.zsh"
+      eval "$(starship init zsh)"
+      eval "$(direnv hook zsh)"
     '';
     promptInit = "";
   };
@@ -27,9 +38,7 @@
       cleanup = "zap";
       upgrade = true;
     };
-    global = {
-      brewfile = true;
-    };
+    global = { brewfile = true; };
     brews = [
       "adr-tools"
       "asdf"
@@ -37,7 +46,6 @@
       "argocd"
       "cocoapods"
       "cmake"
-      "direnv"
       "docker-credential-helper-ecr"
       "gifski"
       "granted"
@@ -50,47 +58,10 @@
       "postgresql@14"
       "pyenv"
       "redis"
-      "starship"
       "terraform"
       "terraformer"
       "terragrunt"
       "tflint"
-      {
-        name = "emacs-mac";
-        args = [
-          "with-starter"
-          "with-native-comp"
-          "with-mac-metal"
-          "with-xwidgets"
-        ];
-      }
-      # emacs-mac deps are explicitly listed so that others can be removed
-      "m4"
-      "autoconf"
-      "automake"
-      "bdw-gc"
-      "gmp"
-      "isl"
-      "mpfr"
-      "libmpc"
-      "gcc"
-      "gettext"
-      "libtool"
-      "libunistring"
-      "libvterm"
-      "pkg-config"
-      "guile"
-      "libidn2"
-      "libnghttp2"
-      "libtasn1"
-      "nettle"
-      "p11-kit"
-      "unbound"
-      "gnutls"
-      "jansson"
-      "libgccjit"
-      "libxml2"
-      "texinfo"
     ];
     casks = [
       "1password"
@@ -123,7 +94,6 @@
       "homebrew/core"
       "homebrew/services"
       "hashicorp/tap"
-      "railwaycat/emacsmacport"
     ];
   };
 }

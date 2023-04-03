@@ -2,11 +2,9 @@
 
 let
   # prevents from bringin in > 2gb of fonts
-  selectedNerdfonts = pkgs.nerdfonts.override {
-    fonts = [ "FiraCode" "FiraMono" ];
-  };
-in
-{
+  selectedNerdfonts =
+    pkgs.nerdfonts.override { fonts = [ "FiraCode" "FiraMono" ]; };
+in {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "dfigueiredo";
@@ -25,14 +23,14 @@ in
   # changes in each release.
   home.stateVersion = "22.05";
 
+  imports = [ ./zsh.nix ];
+
   home.packages = with pkgs; [
-    bat
     coreutils
     clj-kondo
     discount
     editorconfig-core-c
     fd
-    fzf
     fontconfig
     gh
     gnuplot
@@ -46,21 +44,28 @@ in
     nodePackages.stylelint
     nodejs
     plantuml
-    poetry
-    python39Full
     (ripgrep.override { withPCRE2 = true; })
-    ruby_3_0
     selectedNerdfonts
     shellcheck
     zsh-z
+
+    # doom deps
+    coreutils
+    discount
+    editorconfig-core-c
+    fontconfig
+    gnuplot
+    pandoc
+    (tree-sitter.withPlugins (_: tree-sitter.allGrammars))
   ];
 
   home.sessionVariables = {
     EDITOR = "emacs";
     DIRENV_WARN_TIMEOUT = "5m";
     ASDF_CONFIG_FILE = "${config.home.homeDirectory}/.config/asdfrc";
-    ASDF_DEFAULT_TOOL_VERSIONS_FILENAME = "${config.home.homeDirectory}/.config/tool-versions";
-    ASDF_DIR="/opt/homebrew/opt/asdf/libexec";
+    ASDF_DEFAULT_TOOL_VERSIONS_FILENAME =
+      "${config.home.homeDirectory}/.config/tool-versions";
+    ASDF_DIR = "/opt/homebrew/opt/asdf/libexec";
   };
 
   home.sessionPath = [
@@ -78,107 +83,16 @@ in
     '';
   };
 
-  home.file.".doom.d/init.el".source = ./.doom.d/init.el;
-  home.file.".doom.d/packages.el".source = ./.doom.d/packages.el;
-  home.file.".doom.d/config.el".source = ./.doom.d/config.el;
-  xdg.configFile."shellcheckrc".source = ./shellcheckrc;
-  xdg.configFile."asdfrc".source = ./asdfrc;
-  xdg.configFile."tool-versions".source = ./tool-versions;
-  xdg.configFile."starship.toml".source = ./starship.toml;
+  home.file = {
+    ".doom.d/init.el".source = ./.doom.d/init.el;
+    ".doom.d/packages.el".source = ./.doom.d/packages.el;
+    ".doom.d/config.el".source = ./.doom.d/config.el;
+    ".emacs.d/profiles.el".source = ./emacs.d/profiles.el;
+  };
 
-  programs = {
-    git = {
-      enable = true;
-      userName = "Dan Figueiredo";
-      userEmail = "figdann@gmail.com";
-      extraConfig = {
-        fetch.prune = true;
-        init.defaultBranch = "main";
-        push.default = "current";
-        pull.rebase = true;
-      };
-      ignores = [ ".#*" ".DS_Store" ".dir-locals.el" ".idea/" ".vscode/" ".direnv/" ];
-    };
-    home-manager = {
-      enable = true;
-    };
-    zsh = { 
-      enable = true;
-      shellAliases = {
-        ll = "ls -la";
-        be="bundle exec";
-        # Editor aliases, VS Code is added via home manager
-        idea="open -na /Applications/IntelliJ\\ IDEA.app --args";
-        # Git aliases
-        gs="git status";
-        gcm="git checkout $(getGitDefaultBranch)";
-        grm="git rebase $(getGitDefaultBranch)";
-        gcl="git checkout -";
-        gcp="addCommitPush";
-        grhh="git reset --hard HEAD";
-        gbpr="branchAndOpenPR";
-        gurb="updateMainAndRebaseLastBranch";
-        assume="source assume";
-      };
-      enableCompletion = true;
-      enableAutosuggestions = true;
-      enableSyntaxHighlighting = true;
-      initExtra = ''
-        function getGitDefaultBranch() (
-          git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'
-        )
-
-        function branchAndOpenPR() (
-          set -e
-
-          git checkout -b $1
-          git add .
-          git commit -m "$2"
-          git push origin $1
-          gh pr create --web
-
-          set +e
-        )
-
-
-        function addCommitPush() (
-          set -e
-
-          git add .
-          git commit -m "$1"
-          git push origin "$(git rev-parse --abbrev-ref HEAD)"
-
-          set +e
-        )
-
-        function updateMainAndRebaseLastBranch() (
-          set -e
-
-          git checkout $(getGitDefaultBranch)
-          git pull
-          git checkout -
-          git rebase $(getGitDefaultBranch)
-        )
-
-        if [ -n "''${commands[fzf-share]}" ]; then
-           source "$(fzf-share)/key-bindings.zsh"
-           source "$(fzf-share)/completion.zsh"
-        fi
-        source "''${ASDF_DIR}/asdf.sh"
-        source "${pkgs.zsh-z}/share/zsh-z/zsh-z.plugin.zsh"
-
-        eval "$(starship init zsh)"
-        eval "$(direnv hook zsh)"
-      '';
-    };
-    vscode = {
-      enable = true;
-      package = pkgs.vscode;
-      extensions = with pkgs.vscode-extensions; [
-        dracula-theme.theme-dracula
-        yzhang.markdown-all-in-one
-        bbenoist.nix
-      ];
-    };
+  xdg.configFile = {
+    "shellcheckrc".source = ./shellcheckrc;
+    "asdfrc".source = ./asdfrc;
+    "tool-versions".source = ./tool-versions;
   };
 }
