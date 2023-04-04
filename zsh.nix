@@ -70,13 +70,6 @@
 
   programs.starship = {
     enable = true;
-    settings = {
-      format = lib.concatStrings [
-        "$directory"
-        "$cmd_duration"
-        "$line_break"
-        "$character"
-      ];
-    };
+    settings = { format = "$all"; };
   };
 }
