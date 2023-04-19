@@ -60,12 +60,8 @@ in {
   ];
 
   home.sessionVariables = {
-    EDITOR = "emacs";
+    EDITOR = "doom";
     DIRENV_WARN_TIMEOUT = "5m";
-    ASDF_CONFIG_FILE = "${config.home.homeDirectory}/.config/asdfrc";
-    ASDF_DEFAULT_TOOL_VERSIONS_FILENAME =
-      "${config.home.homeDirectory}/.config/tool-versions";
-    ASDF_DIR = "/opt/homebrew/opt/asdf/libexec";
   };
 
   home.sessionPath = [
@@ -88,11 +84,11 @@ in {
     ".doom.d/packages.el".source = ./.doom.d/packages.el;
     ".doom.d/config.el".source = ./.doom.d/config.el;
     ".emacs.d/profiles.el".source = ./emacs.d/profiles.el;
+    ".tool-versions".source = ./tool-versions;
   };
 
   xdg.configFile = {
     "shellcheckrc".source = ./shellcheckrc;
-    "asdfrc".source = ./asdfrc;
-    "tool-versions".source = ./tool-versions;
+    "rtx/config.toml".source = ./rtx/config.toml;
   };
 }

@@ -43,7 +43,6 @@
     global = { brewfile = true; };
     brews = [
       "adr-tools"
-      "asdf"
       "awscli"
       "argocd"
       "cocoapods"
@@ -58,8 +57,8 @@
       "minikube"
       "opa"
       "postgresql@14"
-      "pyenv"
       "redis"
+      "rtx"
       "terraform"
       "terraformer"
       "terragrunt"

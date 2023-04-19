@@ -21,7 +21,6 @@
     enableCompletion = true;
     enableSyntaxHighlighting = true;
     initExtra = builtins.readFile ./zshrc + ''
-      source "''${ASDF_DIR}/asdf.sh"
       source "${pkgs.zsh-z}/share/zsh-z/zsh-z.plugin.zsh"
       eval "$(starship init zsh)"
       eval "$(direnv hook zsh)"
@@ -30,8 +29,7 @@
       ll = "ls -la";
       be = "bundle exec";
       assume = "source assume";
-      # Editor aliases, VS Code is added via home manager
-      idea = "open -na /Applications/IntelliJ\\ IDEA.app --args";
+      k = "kubectl";
       # Git custom aliases
       gs = "git status";
       grhh = "git reset --hard HEAD";

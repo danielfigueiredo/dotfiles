@@ -1,6 +1,18 @@
-This is my personal and very WIP dotfiles for Darwin only.
+# Dependencies
 
-You need [Nix](https://nixos.org/download.html#nix-install-macos) and [nix-darwin](https://github.com/LnL7/nix-darwin)
+Homebrew
+
+```
+$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+Nix
+
+```
+$ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+```
+
+# Installation
 
 ```
 git clone git@github.com:danielfigueiredo/dotfiles.git
