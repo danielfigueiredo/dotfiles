@@ -29,6 +29,7 @@ in {
     coreutils
     clj-kondo
     discount
+    deno
     editorconfig-core-c
     fd
     fontconfig
