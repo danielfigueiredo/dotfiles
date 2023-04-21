@@ -54,6 +54,7 @@
       "k6"
       "kubectl"
       "kustomize"
+      "lefthook"
       "minikube"
       "opa"
       "postgresql@14"
