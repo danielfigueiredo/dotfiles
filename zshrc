@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 
 getGitDefaultBranch() (
-  git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'
+  (git symbolic-ref refs/remotes/origin/HEAD || true) | sed 's@^refs/remotes/origin/@@'
 )
 
 branchAndOpenPR() (
   set -e
 
-  git checkout -b $1
+  git checkout -b "${1}"
   git add .
-  git commit -m "$2"
-  git push origin $
+  git commit -m "${2}"
+  git push origin "${1}"
   gh pr create --web
 
   set +e
@@ -22,18 +22,21 @@ addCommitPush() (
 
   git add .
   git commit -m "$1"
-  git push origin "$(git rev-parse --abbrev-ref HEAD)"
+
+  local branchName
+  branchName="$(git rev-parse --abbrev-ref HEAD)"
+
+  git push origin "${branchName}"
 
   set +e
 )
 
 updateMainAndRebaseLastBranch() (
-  set -e
+  local defaultBranch
+  defaultBranch="$(set -e getGitDefaultBranch)"
 
-  git checkout $(getGitDefaultBranch)
+  git checkout "${defaultBranch}"
   git pull
   git checkout -
-  git rebase $(getGitDefaultBranch)
-
-  set +e
+  git rebase "${defaultBranch}"
 )
