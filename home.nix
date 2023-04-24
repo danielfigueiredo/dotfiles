@@ -61,7 +61,7 @@ in {
   ];
 
   home.sessionVariables = {
-    EDITOR = "doom";
+    EDITOR = "emacs";
     DIRENV_WARN_TIMEOUT = "5m";
   };
 
