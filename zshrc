@@ -16,6 +16,27 @@ branchAndOpenPR() (
   set +e
 )
 
+checkoutDefaultBranch() (
+  set -e
+
+  local defaultBranch
+  defaultBranch="$(set -e getGitDefaultBranch)"
+
+  git checkout "${defaultBranch}"
+
+  set +e
+)
+
+checkoutRemoteBranch() (
+  set -e
+
+  local defaultBranch
+  defaultBranch="$(set -e getGitDefaultBranch)"
+
+  git checkout -b "${1}" "origin/${1}"
+
+  set +e
+)
 
 addCommitPush() (
   set -e

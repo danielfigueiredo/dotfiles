@@ -34,12 +34,12 @@
       # Git custom aliases
       gs = "git status";
       grhh = "git reset --hard HEAD";
-      gcm = "git checkout $(getGitDefaultBranch)";
-      grm = "git rebase $(getGitDefaultBranch)";
+      gcm = "checkoutDefaultBranch";
+      grm = "updateMainAndRebaseLastBranch";
       gcl = "git checkout -";
       gcp = "addCommitPush";
       gbpr = "branchAndOpenPR";
-      gurb = "updateMainAndRebaseLastBranch";
+      gcrb = "checkoutRemoteBranch";
     };
   };
 
