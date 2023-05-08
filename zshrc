@@ -1,46 +1,34 @@
 #!/usr/bin/env bash
 
+shopt -s inherit_errexit
+
 getGitDefaultBranch() (
   (git remote show origin || true) | sed -n '/HEAD branch/s/.*: //p'
 )
 
 branchAndOpenPR() (
-  set -e
-
   git checkout -b "${1}"
   git add .
   git commit -m "${2}"
   git push origin "${1}"
   gh pr create --web
-
-  set +e
 )
 
 checkoutDefaultBranch() (
-  set -e
-
   local defaultBranch
-  defaultBranch="$(set -e getGitDefaultBranch)"
+  defaultBranch=$(getGitDefaultBranch)
 
   git checkout "${defaultBranch}"
-
-  set +e
 )
 
 checkoutRemoteBranch() (
-  set -e
-
   local defaultBranch
-  defaultBranch="$(set -e getGitDefaultBranch)"
+  defaultBranch=$(getGitDefaultBranch)
 
   git checkout -b "${1}" "origin/${1}"
-
-  set +e
 )
 
 addCommitPush() (
-  set -e
-
   git add .
   git commit -m "$1"
 
@@ -48,16 +36,14 @@ addCommitPush() (
   branchName="$(git rev-parse --abbrev-ref HEAD)"
 
   git push origin "${branchName}"
-
-  set +e
 )
 
 updateMainAndRebaseLastBranch() (
   local defaultBranch
-  defaultBranch="$(set -e getGitDefaultBranch)"
+  defaultBranch=$(getGitDefaultBranch)
 
   git checkout "${defaultBranch}"
-  git pull
+  git pull origin "${defaultBranch}"
   git checkout -
   git rebase "${defaultBranch}"
 )
