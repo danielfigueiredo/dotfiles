@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 getGitDefaultBranch() (
-  (git symbolic-ref refs/remotes/origin/HEAD || true) | sed 's@^refs/remotes/origin/@@'
+  (git remote show origin || true) | sed -n '/HEAD branch/s/.*: //p'
 )
 
 branchAndOpenPR() (
