@@ -84,7 +84,7 @@
   (tide-setup)
   (flycheck-mode +1)
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
-  (setq tide-node-executable "/Users/dfigueiredo/.local/share/rtx/installs/nodejs/18/bin/node")
+  (setq tide-node-executable "/Users/dfigueiredo/.local/share/rtx/installs/node/latest/bin/node")
   (eldoc-mode +1)
   (tide-hl-identifier-mode +1)
   ;; company is an optional dependency. You have to

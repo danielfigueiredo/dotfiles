@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-shopt -s inherit_errexit
-
 getGitDefaultBranch() (
   (git remote show origin || true) | sed -n '/HEAD branch/s/.*: //p'
 )
