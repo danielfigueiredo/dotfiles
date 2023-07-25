@@ -19,7 +19,7 @@
     enable = true;
     enableAutosuggestions = true;
     enableCompletion = true;
-    enableSyntaxHighlighting = true;
+    syntaxHighlighting.enable = true;
     initExtra = builtins.readFile ./zshrc + ''
       source "${pkgs.zsh-z}/share/zsh-z/zsh-z.plugin.zsh"
       eval "$(rtx activate zsh)"
