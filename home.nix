@@ -34,6 +34,7 @@ in {
     fd
     fontconfig
     gh
+    gitleaks
     gnuplot
     htop
     ispell

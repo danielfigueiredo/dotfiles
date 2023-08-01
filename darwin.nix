@@ -49,6 +49,7 @@
       "cmake"
       "colima"
       "docker"
+      "docker-buildx"
       "docker-credential-helper-ecr"
       "gifski"
       "granted"
