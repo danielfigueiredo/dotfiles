@@ -49,6 +49,7 @@
       "cmake"
       "colima"
       "docker"
+      "docker-compose"
       "docker-buildx"
       "docker-credential-helper-ecr"
       "gifski"
