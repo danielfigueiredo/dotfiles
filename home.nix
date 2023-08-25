@@ -27,9 +27,13 @@ in {
 
   home.packages = with pkgs; [
     coreutils
+    colima
     clj-kondo
     discount
     deno
+    docker
+    docker-compose
+    docker-buildx
     editorconfig-core-c
     fd
     fontconfig

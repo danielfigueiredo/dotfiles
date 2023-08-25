@@ -45,3 +45,11 @@ updateMainAndRebaseLastBranch() (
   git checkout -
   git rebase "${defaultBranch}"
 )
+
+cloneWSRepository() (
+  pushd ~/code/ws || exit
+
+  gh repo clone "git@github.com:wealthsimple/${1}.git"
+
+  popd || exit
+)

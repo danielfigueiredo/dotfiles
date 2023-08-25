@@ -33,6 +33,7 @@
       k = "kubectl";
       # Git custom aliases
       gs = "git status";
+      gp = "git pull";
       grhh = "git reset --hard HEAD";
       gcm = "checkoutDefaultBranch";
       grm = "updateMainAndRebaseLastBranch";
@@ -40,6 +41,7 @@
       gcp = "addCommitPush";
       gbpr = "branchAndOpenPR";
       gcrb = "checkoutRemoteBranch";
+      gcws = "cloneWSRepository";
     };
   };
 
