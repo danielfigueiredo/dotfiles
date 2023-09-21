@@ -23,6 +23,8 @@ checkoutRemoteBranch() (
   local defaultBranch
   defaultBranch=$(getGitDefaultBranch)
 
+  checkoutDefaultBranch
+  git pull
   git checkout -b "${1}" "origin/${1}"
 )
 

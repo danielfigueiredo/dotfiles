@@ -74,6 +74,7 @@
       "android-studio"
       "adobe-acrobat-reader"
       "airflow"
+      "chromium"
       "dbeaver-community"
       "discord"
       "firefox"
