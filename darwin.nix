@@ -45,7 +45,6 @@
       "adr-tools"
       "awscli"
       "argocd"
-      "bundle"
       "cocoapods"
       "cmake"
       "docker-credential-helper-ecr"

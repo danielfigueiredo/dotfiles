@@ -44,6 +44,7 @@ in {
     ispell
     jdk11
     jq
+    just
     ktlint
     nixfmt
     nodePackages.js-beautify

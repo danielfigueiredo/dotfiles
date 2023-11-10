@@ -95,9 +95,6 @@
 ;; aligns annotation to the right hand side
 (setq company-tooltip-align-annotations t)
 
-;; formats the buffer before saving
-(add-hook 'before-save-hook 'tide-format-before-save)
-
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
 
 (require 'web-mode)
@@ -107,29 +104,10 @@
             (when (string-equal "tsx" (file-name-extension buffer-file-name))
               (setup-tide-mode))))
 
+;; enable typescript-tslint checker
+(flycheck-add-mode 'typescript-tslint 'web-mode)
+
 (projectile-mode +1)
-
-(use-package! org-super-agenda
-  :after org-agenda
-  :init
-  (setq org-super-agenda-groups '((:name "Today"
-                                 :time-grid t
-                                 :schedule today)
-                                (:name "Due Today"
-                                 :deadline "Important"
-                                 :priority "Overdue")
-                                (:name "Overdue"
-                                 :deadline: past)
-                                (:name "Due soon"
-                                 :deadline: future)
-                                (:name "Big Outcomes"
-                                 :tag "bo")))
-  :config
-  (org-super-agenda-mode))
-
-(setq
-   split-width-threshold 0
-   split-height-threshold nil)
 
 ;; (use-package rego-mode
 ;;   :ensure t
