@@ -104,9 +104,6 @@
             (when (string-equal "tsx" (file-name-extension buffer-file-name))
               (setup-tide-mode))))
 
-;; enable typescript-tslint checker
-(flycheck-add-mode 'typescript-tslint 'web-mode)
-
 (projectile-mode +1)
 
 ;; (use-package rego-mode
