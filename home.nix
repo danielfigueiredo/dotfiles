@@ -26,6 +26,7 @@ in {
   imports = [ ./zsh.nix ];
 
   home.packages = with pkgs; [
+    amazon-ecr-credential-helper
     awscli2
     argocd
     coreutils
@@ -35,7 +36,6 @@ in {
     deno
     docker
     docker-compose
-    docker-credential-helper-ecr
     docker-buildx
     editorconfig-core-c
     fd

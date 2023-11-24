@@ -48,7 +48,7 @@
 
   programs.emacs = {
     enable = true;
-    package = pkgs.emacs.overrideAttrs (original: {
+    package = pkgs.emacs29.overrideAttrs (original: {
       patches = (original.patches or [ ]) ++ [
         ./emacs/patches/fix-window-role.patch
         ./emacs/patches/increase-block-alignment.patch
