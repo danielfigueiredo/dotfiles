@@ -26,13 +26,17 @@ in {
   imports = [ ./zsh.nix ];
 
   home.packages = with pkgs; [
+    awscli2
+    argocd
     coreutils
     colima
     clj-kondo
-    discount
+    cmake
     deno
+    discount
     docker
     docker-compose
+    docker-credential-helper-ecr
     docker-buildx
     editorconfig-core-c
     fd
@@ -40,23 +44,34 @@ in {
     gh
     gitleaks
     gnuplot
+    kubernetes-helm
     htop
     ispell
     jdk11
     jq
     just
+    k6
     ktlint
+    kubectl
+    kustomize
+    microplane
+    minikube
     nixfmt
     nodePackages.js-beautify
     nodePackages.stylelint
     nodejs
     plantuml
+    redis
     (ripgrep.override { withPCRE2 = true; })
+    rtx
     selectedNerdfonts
     shellcheck
+    terraform
+    terragrunt
+    tflint
     zsh-z
 
-    # doom deps
+    # Doom deps
     coreutils
     discount
     editorconfig-core-c
@@ -79,7 +94,7 @@ in {
   home.activation = {
     installDoom = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       DOOM="${config.home.homeDirectory}/.emacs.d"
-      if [ ! -dj $DOOM ]; then
+      if [ ! -d $DOOM ]; then
         $DRY_RUN_CMD ${pkgs.git}/bin/git clone --depth 1 https://github.com/doomemacs/doomemacs.git $DOOM
         $DOOM/bin/doom install
       fi

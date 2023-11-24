@@ -17,11 +17,7 @@
   # this makes nix.conf be auto-generated
   nix.extraOptions = "experimental-features = nix-command flakes";
 
-  programs.zsh = {
-    loginShellInit = ''
-      eval "$(${config.homebrew.brewPrefix}/brew shellenv)"
-    '';
-  };
+  programs.zsh = { enable = true; };
 
   system = {
     defaults = {
@@ -43,28 +39,12 @@
     global = { brewfile = true; };
     brews = [
       "adr-tools"
-      "awscli"
-      "argocd"
       "cocoapods"
-      "cmake"
-      "docker-credential-helper-ecr"
       "gifski"
       "granted"
-      "helm"
-      "k6"
-      "kubectl"
-      "kustomize"
       "lefthook"
-      "microplane"
-      "minikube"
       "opa"
       "postgresql@14"
-      "redis"
-      "rtx"
-      "terraform"
-      "terraformer"
-      "terragrunt"
-      "tflint"
     ];
     casks = [
       "1password"
