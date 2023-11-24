@@ -33,7 +33,6 @@ in {
     clj-kondo
     cmake
     deno
-    discount
     docker
     docker-compose
     docker-credential-helper-ecr
