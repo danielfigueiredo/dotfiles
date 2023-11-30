@@ -28,6 +28,7 @@ in {
   home.packages = with pkgs; [
     amazon-ecr-credential-helper
     awscli2
+    ansible
     argocd
     coreutils
     colima
