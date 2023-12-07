@@ -33,7 +33,7 @@
     enable = true;
     onActivation = {
       autoUpdate = true;
-      cleanup = "zap";
+      cleanup = "none";
       upgrade = true;
     };
     global = { brewfile = true; };

@@ -32,35 +32,23 @@ in {
     argocd
     coreutils
     colima
-    clj-kondo
     cmake
     deno
     docker
     docker-compose
     docker-buildx
-    editorconfig-core-c
     fd
-    fontconfig
     gh
     gitleaks
-    gnuplot
     kubernetes-helm
-    htop
     ispell
-    jdk11
     jq
     just
     k6
-    ktlint
     kubectl
     kustomize
     microplane
     minikube
-    nixfmt
-    nodePackages.js-beautify
-    nodePackages.stylelint
-    nodejs
-    plantuml
     redis
     (ripgrep.override { withPCRE2 = true; })
     rtx
