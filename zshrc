@@ -55,3 +55,10 @@ cloneWSRepository() (
 
   popd || exit
 )
+
+stashPullPop() (
+  git stash
+  checkoutDefaultBranch
+  git pull
+  git stash pop
+)

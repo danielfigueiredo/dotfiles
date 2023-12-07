@@ -43,6 +43,7 @@
       gbpr = "branchAndOpenPR";
       gcrb = "checkoutRemoteBranch";
       gcws = "cloneWSRepository";
+      gspp = "stashPullPop";
     };
   };
 
