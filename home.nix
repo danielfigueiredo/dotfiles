@@ -54,6 +54,7 @@ in {
     rtx
     selectedNerdfonts
     shellcheck
+    tree
     terraform
     terragrunt
     tflint

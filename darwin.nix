@@ -56,6 +56,7 @@
       "dbeaver-community"
       "discord"
       "firefox"
+      "flipper"
       "google-chrome"
       "grammarly"
       "postman"
