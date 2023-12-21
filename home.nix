@@ -49,6 +49,7 @@ in {
     kustomize
     microplane
     minikube
+    openssh
     redis
     (ripgrep.override { withPCRE2 = true; })
     rtx
@@ -62,7 +63,7 @@ in {
 
     # Doom deps
     coreutils
-    discount
+    # discount
     editorconfig-core-c
     fontconfig
     gnuplot
