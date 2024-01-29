@@ -49,7 +49,6 @@ in {
     kustomize
     microplane
     minikube
-    openssh
     redis
     (ripgrep.override { withPCRE2 = true; })
     rtx
