@@ -49,9 +49,9 @@ in {
     kustomize
     microplane
     minikube
+    mise
     redis
     (ripgrep.override { withPCRE2 = true; })
-    rtx
     selectedNerdfonts
     shellcheck
     tree
@@ -100,6 +100,6 @@ in {
 
   xdg.configFile = {
     "shellcheckrc".source = ./shellcheckrc;
-    "rtx/config.toml".source = ./rtx/config.toml;
+    "mise/config.toml".source = ./mise/config.toml;
   };
 }

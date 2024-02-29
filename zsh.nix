@@ -25,6 +25,7 @@
       eval "$(/opt/homebrew/bin/brew shellenv)"
       eval "$(starship init zsh)"
       eval "$(direnv hook zsh)"
+      eval "$(${pkgs.mise}/bin/mise activate zsh)"
     '';
     shellAliases = {
       ll = "ls -la";

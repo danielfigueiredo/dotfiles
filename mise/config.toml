@@ -1,0 +1,8 @@
+[alias.nodejs]
+latest = '18'
+
+[tools]
+nodejs = '18.13'
+ruby   = '3.2.1'
+golang = '1.19'
+python = '3.10'
