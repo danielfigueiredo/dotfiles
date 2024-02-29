@@ -23,7 +23,6 @@
     initExtra = builtins.readFile ./zshrc + ''
       source "${pkgs.zsh-z}/share/zsh-z/zsh-z.plugin.zsh"
       eval "$(/opt/homebrew/bin/brew shellenv)"
-      eval "$(rtx activate zsh)"
       eval "$(starship init zsh)"
       eval "$(direnv hook zsh)"
     '';
