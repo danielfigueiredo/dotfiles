@@ -82,7 +82,7 @@ in {
   ];
 
   home.sessionVariables = {
-    EDITOR = "vim";
+    EDITOR = "emacs";
     DIRENV_WARN_TIMEOUT = "5m";
   };
 
