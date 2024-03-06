@@ -91,22 +91,12 @@ in {
     "${config.home.homeDirectory}/.config/emacs/bin"
   ];
 
-#  home.activation = {
-#    installDoom = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-#      DOOM="${config.home.homeDirectory}/.config/emacs"
-#      if [ ! -d $DOOM ]; then
-#        ${pkgs.git}/bin/git clone --depth 1 https://github.com/doomemacs/doomemacs.git $DOOM
-#        $DOOM/bin/doom install
-#      fi
-#    '';
-#  };
-
-#  home.file = {
-#    ".doom.d/init.el".source = ./.doom.d/init.el;
-#    ".doom.d/packages.el".source = ./.doom.d/packages.el;
-#    ".doom.d/config.el".source = ./.doom.d/config.el;
-#    ".tool-versions".source = ./tool-versions;
-#  };
+  home.file = {
+    "doom/init.el".source = ./.config/doom/init.el;
+    "doom/packages.el".source = ./.config/doom/packages.el;
+    "doom/config.el".source = ./.config/doom/config.el;
+    ".tool-versions".source = ./tool-versions;
+  };
 
   xdg.configFile = {
     "shellcheckrc".source = ./shellcheckrc;
