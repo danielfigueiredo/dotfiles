@@ -47,7 +47,6 @@
       "postgresql@14"
     ];
     casks = [
-      "1password"
       "1password-cli"
       "android-studio"
       "adobe-acrobat-reader"
@@ -57,25 +56,19 @@
       "discord"
       "firefox"
       "flipper"
-      "google-chrome"
       "grammarly"
       "postman"
       "notion"
       "raycast"
-      "slack"
       "spotify"
       "steam"
       "tuple"
       "vlc"
       "whatsapp"
-      "zoom"
     ];
     taps = [
       "common-fate/granted"
       "homebrew/bundle"
-      "homebrew/cask"
-      "homebrew/cask-drivers"
-      "homebrew/core"
       "homebrew/services"
       "hashicorp/tap"
     ];

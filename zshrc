@@ -49,6 +49,9 @@ updateMainAndRebaseLastBranch() (
 )
 
 cloneWSRepository() (
+  if [[ ! -d ~/code/ws ]]; then
+    mkdir ~/code/ws
+  fi
   pushd ~/code/ws || exit
 
   gh repo clone "git@github.com:wealthsimple/${1}.git"

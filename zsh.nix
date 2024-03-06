@@ -2,19 +2,6 @@
 
 {
   programs.direnv.enable = true;
-  programs.git = {
-    enable = true;
-    userName = "Dan Figueiredo";
-    userEmail = "figdann@gmail.com";
-    extraConfig = {
-      fetch.prune = true;
-      init.defaultBranch = "main";
-      push.default = "current";
-      pull.rebase = true;
-    };
-    ignores =
-      [ ".#*" ".DS_Store" ".dir-locals.el" ".idea/" ".vscode/" ".direnv/" ];
-  };
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
@@ -49,13 +36,7 @@
 
   programs.emacs = {
     enable = true;
-    package = pkgs.emacs29.overrideAttrs (original: {
-      patches = (original.patches or [ ]) ++ [
-        ./emacs/patches/fix-window-role.patch
-        ./emacs/patches/increase-block-alignment.patch
-        ./emacs/patches/system-appearance.patch
-      ];
-    });
+    package = pkgs.emacs29-macport;
     extraPackages = (epkgs: [ epkgs.vterm ]);
   };
 
@@ -68,7 +49,6 @@
 
   programs.bat = {
     enable = true;
-    config = { theme = "gruvbox-light"; };
   };
 
   programs.starship = {

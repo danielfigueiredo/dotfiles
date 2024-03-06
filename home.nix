@@ -23,7 +23,7 @@ in {
   # changes in each release.
   home.stateVersion = "22.05";
 
-  imports = [ ./zsh.nix ];
+  imports = [ ./zsh.nix ./git.nix ];
 
   home.packages = with pkgs; [
     amazon-ecr-credential-helper
@@ -33,7 +33,6 @@ in {
     coreutils
     colima
     cmake
-    deno
     docker
     docker-compose
     docker-buildx
@@ -62,7 +61,23 @@ in {
 
     # Doom deps
     coreutils
-    # discount
+    dockfmt
+    gopls
+    gomodifytags
+    gotests
+    gore
+    gotools
+    black
+    python311Packages.pyflakes
+    python311Packages.isort
+    python311Packages.nose3
+    python311Packages.pytest
+    pipenv
+    clang-tools_17
+    ktlint
+    cargo
+    rustc
+    shfmt
     editorconfig-core-c
     fontconfig
     gnuplot
@@ -71,7 +86,7 @@ in {
   ];
 
   home.sessionVariables = {
-    EDITOR = "emacs";
+    EDITOR = "vim";
     DIRENV_WARN_TIMEOUT = "5m";
   };
 
@@ -82,7 +97,7 @@ in {
 
   home.activation = {
     installDoom = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      DOOM="${config.home.homeDirectory}/.emacs.d"
+      DOOM="${config.home.homeDirectory}/.emacs.d/"
       if [ ! -d $DOOM ]; then
         $DRY_RUN_CMD ${pkgs.git}/bin/git clone --depth 1 https://github.com/doomemacs/doomemacs.git $DOOM
         $DOOM/bin/doom install

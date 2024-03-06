@@ -17,7 +17,7 @@
   outputs = { self, nixpkgs, darwin, flake-utils, home-manager }:
     let system = "aarch64-darwin";
     in {
-      darwinConfigurations.dfigueiredo177d = darwin.lib.darwinSystem {
+      darwinConfigurations.dfigueiredo9a52 = darwin.lib.darwinSystem {
         inherit system;
 
         modules = [
