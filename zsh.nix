@@ -34,11 +34,11 @@
     };
   };
 
-  programs.emacs = {
-    enable = true;
-    package = pkgs.emacs29-macport;
-    extraPackages = (epkgs: [ epkgs.vterm ]);
-  };
+#  programs.emacs = {
+#    enable = true;
+#    package = pkgs.emacs29;
+#    extraPackages = (epkgs: [ epkgs.vterm ]);
+#  };
 
   programs.fzf = {
     enable = true;

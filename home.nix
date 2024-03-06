@@ -50,7 +50,7 @@ in {
     minikube
     mise
     redis
-    (ripgrep.override { withPCRE2 = true; })
+    ripgrep
     selectedNerdfonts
     shellcheck
     tree
@@ -62,11 +62,6 @@ in {
     # Doom deps
     coreutils
     dockfmt
-    gopls
-    gomodifytags
-    gotests
-    gore
-    gotools
     black
     python311Packages.pyflakes
     python311Packages.isort
@@ -75,6 +70,7 @@ in {
     pipenv
     clang-tools_17
     ktlint
+    nixfmt
     cargo
     rustc
     shfmt
@@ -92,26 +88,25 @@ in {
 
   home.sessionPath = [
     "${config.home.homeDirectory}/.local/bin"
-    "${config.home.homeDirectory}/.emacs.d/bin"
+    "${config.home.homeDirectory}/.config/emacs/bin"
   ];
 
-  home.activation = {
-    installDoom = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      DOOM="${config.home.homeDirectory}/.emacs.d/"
-      if [ ! -d $DOOM ]; then
-        $DRY_RUN_CMD ${pkgs.git}/bin/git clone --depth 1 https://github.com/doomemacs/doomemacs.git $DOOM
-        $DOOM/bin/doom install
-      fi
-    '';
-  };
+#  home.activation = {
+#    installDoom = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+#      DOOM="${config.home.homeDirectory}/.config/emacs"
+#      if [ ! -d $DOOM ]; then
+#        ${pkgs.git}/bin/git clone --depth 1 https://github.com/doomemacs/doomemacs.git $DOOM
+#        $DOOM/bin/doom install
+#      fi
+#    '';
+#  };
 
-  home.file = {
-    ".doom.d/init.el".source = ./.doom.d/init.el;
-    ".doom.d/packages.el".source = ./.doom.d/packages.el;
-    ".doom.d/config.el".source = ./.doom.d/config.el;
-    ".emacs.d/profiles.el".source = ./emacs.d/profiles.el;
-    ".tool-versions".source = ./tool-versions;
-  };
+#  home.file = {
+#    ".doom.d/init.el".source = ./.doom.d/init.el;
+#    ".doom.d/packages.el".source = ./.doom.d/packages.el;
+#    ".doom.d/config.el".source = ./.doom.d/config.el;
+#    ".tool-versions".source = ./tool-versions;
+#  };
 
   xdg.configFile = {
     "shellcheckrc".source = ./shellcheckrc;
