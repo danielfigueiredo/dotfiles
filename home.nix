@@ -92,10 +92,9 @@ in {
   ];
 
   home.file = {
-    "doom/init.el".source = ./.config/doom/init.el;
-    "doom/packages.el".source = ./.config/doom/packages.el;
-    "doom/config.el".source = ./.config/doom/config.el;
-    ".tool-versions".source = ./tool-versions;
+    ".config/doom/init.el".source = ./doom/init.el;
+    ".config/doom/packages.el".source = ./doom/packages.el;
+    ".config/doom/config.el".source = ./doom/config.el;
   };
 
   xdg.configFile = {
