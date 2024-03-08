@@ -19,16 +19,6 @@
 
   programs.zsh = { enable = true; };
 
-  system = {
-    defaults = {
-      dock = {
-        autohide = true;
-        show-recents = false;
-        static-only = true;
-      };
-    };
-  };
-
   homebrew = {
     enable = true;
     onActivation = {
