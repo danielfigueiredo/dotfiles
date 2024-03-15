@@ -23,7 +23,6 @@
       be = "bundle exec";
       assume = "source assume";
       k = "kubectl";
-      emacsnw = "emacs -nw";
       # Git custom aliases
       gs = "git status";
       gp = "git pull";

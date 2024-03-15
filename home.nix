@@ -82,7 +82,7 @@ in {
   ];
 
   home.sessionVariables = {
-    EDITOR = "emacsnw";
+    EDITOR = "emacsclient";
     DIRENV_WARN_TIMEOUT = "1m";
   };
 
