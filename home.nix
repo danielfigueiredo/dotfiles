@@ -82,8 +82,8 @@ in {
   ];
 
   home.sessionVariables = {
-    EDITOR = "emacs";
-    DIRENV_WARN_TIMEOUT = "5m";
+    EDITOR = "emacsnw";
+    DIRENV_WARN_TIMEOUT = "1m";
   };
 
   home.sessionPath = [

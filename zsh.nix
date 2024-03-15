@@ -13,12 +13,17 @@
       eval "$(starship init zsh)"
       eval "$(direnv hook zsh)"
       eval "$(${pkgs.mise}/bin/mise activate zsh)"
+
+      # Force load session variables on shell start
+      export __HM_SESS_VARS_SOURCED=""
+      source "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
     '';
     shellAliases = {
       ll = "ls -la";
       be = "bundle exec";
       assume = "source assume";
       k = "kubectl";
+      emacsnw = "emacs -nw";
       # Git custom aliases
       gs = "git status";
       gp = "git pull";
@@ -47,9 +52,7 @@
     fileWidgetCommand = "${pkgs.fd}/bin/fd --type f";
   };
 
-  programs.bat = {
-    enable = true;
-  };
+  programs.bat = { enable = true; };
 
   programs.starship = {
     enable = true;
