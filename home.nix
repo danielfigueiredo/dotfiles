@@ -46,6 +46,7 @@ in {
     k6
     kubectl
     kustomize
+    maven
     microplane
     minikube
     mise
