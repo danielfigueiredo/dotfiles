@@ -27,7 +27,8 @@ in {
 
   home.packages = with pkgs; [
     amazon-ecr-credential-helper
-    awscli2
+    # python3
+    # awscli2
     ansible
     argocd
     coreutils
@@ -46,6 +47,7 @@ in {
     k6
     kubectl
     kustomize
+    kotlin
     maven
     microplane
     minikube
@@ -68,6 +70,8 @@ in {
     python311Packages.isort
     python311Packages.nose3
     python311Packages.pytest
+    nodePackages.graphql-language-service-cli
+    kotlin-language-server
     pipenv
     clang-tools_17
     ktlint
