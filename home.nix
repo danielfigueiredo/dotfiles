@@ -47,6 +47,7 @@ in {
     k6
     kubectl
     kustomize
+    k9s
     kotlin
     maven
     microplane
