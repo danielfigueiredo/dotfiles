@@ -7,7 +7,7 @@ getGitDefaultBranch() (
 branchAndOpenPR() (
   git checkout -b "${1}"
   git add .
-  git commit -m "${2}"
+  git commit -S -m "${2}"
   git push origin "${1}"
   gh pr create --web
 )
@@ -30,7 +30,7 @@ checkoutRemoteBranch() (
 
 addCommitPush() (
   git add .
-  git commit -m "$1"
+  git commit -S -m "$1"
 
   local branchName
   branchName="$(git rev-parse --abbrev-ref HEAD)"
