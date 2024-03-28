@@ -39,6 +39,7 @@ in {
     docker-buildx
     fd
     gh
+    gnupg1
     gitleaks
     kubernetes-helm
     ispell
@@ -48,10 +49,10 @@ in {
     kubectl
     kustomize
     k9s
+    kind
     kotlin
     maven
     microplane
-    minikube
     mise
     redis
     ripgrep
