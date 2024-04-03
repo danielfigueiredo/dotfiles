@@ -16,6 +16,12 @@
       push.default = "current";
       pull.rebase = true;
       merge.conflictStyle = "diff3";
+      commit.gpgSign = true;
+      url = {
+        "git@github.com:wealthsimple" = {
+          insteadOf = "https://github.com/wealthsimple";
+        };
+      };
     };
     ignores = [
       ".#*"
