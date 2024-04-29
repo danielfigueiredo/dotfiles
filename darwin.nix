@@ -29,6 +29,7 @@
     global = { brewfile = true; };
     brews = [
       "adr-tools"
+      "awscli"
       "cocoapods"
       "gifski"
       "granted"
