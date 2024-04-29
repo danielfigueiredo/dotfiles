@@ -85,6 +85,7 @@ in {
     fontconfig
     gnuplot
     pandoc
+    tree-sitter-grammars.tree-sitter-go
     (tree-sitter.withPlugins (_: tree-sitter.allGrammars))
   ];
 
