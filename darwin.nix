@@ -33,6 +33,7 @@
       "cocoapods"
       "gifski"
       "granted"
+      "idb-companion"
       "lefthook"
       "opa"
       "postgresql@14"
@@ -62,6 +63,7 @@
       "homebrew/bundle"
       "homebrew/services"
       "hashicorp/tap"
+      "facebook/fb"
     ];
   };
 }
