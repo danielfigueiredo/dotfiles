@@ -48,7 +48,6 @@
       "discord"
       "firefox"
       "flipper"
-      "grammarly"
       "postman"
       "notion"
       "raycast"
