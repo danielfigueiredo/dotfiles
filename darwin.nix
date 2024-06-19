@@ -5,8 +5,7 @@
   nix.configureBuildUsers = true;
 
   fonts = {
-    fontDir.enable = true;
-    fonts = with pkgs; [
+    packages = with pkgs; [
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
       emacs-all-the-icons-fonts
       inter

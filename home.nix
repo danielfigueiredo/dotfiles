@@ -34,6 +34,7 @@ in {
     coreutils
     colima
     cmake
+    discount
     docker
     docker-compose
     docker-buildx
@@ -77,7 +78,7 @@ in {
     pipenv
     clang-tools_17
     ktlint
-    nixfmt
+    nixfmt-rfc-style
     cargo
     rustc
     shfmt
