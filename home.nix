@@ -71,7 +71,6 @@ in {
     black
     python311Packages.pyflakes
     python311Packages.isort
-    python311Packages.nose3
     python311Packages.pytest
     nodePackages.graphql-language-service-cli
     kotlin-language-server
