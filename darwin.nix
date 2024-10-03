@@ -2,6 +2,9 @@
   # Have nix-darwin manage the Nix daemon
   services.nix-daemon.enable = true;
 
+  ids.gids.nixbld = 30000;
+  system.stateVersion = 5;
+
   nix.configureBuildUsers = true;
 
   fonts = {
@@ -55,6 +58,7 @@
       "tuple"
       "vlc"
       "whatsapp"
+      "zed"
     ];
     taps = [
       "common-fate/granted"
