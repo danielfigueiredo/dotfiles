@@ -30,6 +30,7 @@
     };
     global = { brewfile = true; };
     brews = [
+      "docker-credential-helper-ecr"
       "adr-tools"
       "awscli"
       "cocoapods"

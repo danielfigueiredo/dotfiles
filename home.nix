@@ -26,9 +26,6 @@ in {
   imports = [ ./zsh.nix ./git.nix ];
 
   home.packages = with pkgs; [
-    amazon-ecr-credential-helper
-    # python3
-    # awscli2
     ansible
     argocd
     coreutils
