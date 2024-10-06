@@ -10,7 +10,6 @@
   fonts = {
     packages = with pkgs; [
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-      emacs-all-the-icons-fonts
       inter
     ];
   };
@@ -40,6 +39,7 @@
       "lefthook"
       "opa"
       "postgresql@14"
+      "rustup"
     ];
     casks = [
       "1password-cli"

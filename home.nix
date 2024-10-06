@@ -31,7 +31,6 @@ in {
     coreutils
     colima
     cmake
-    discount
     docker
     docker-compose
     docker-buildx
@@ -40,7 +39,6 @@ in {
     gnupg1
     gitleaks
     kubernetes-helm
-    ispell
     jq
     just
     k6
@@ -59,47 +57,16 @@ in {
     tree
     terraform
     terragrunt
-    tflint
     zsh-z
-
-    # Doom deps
-    coreutils
-    dockfmt
-    black
-    python311Packages.pyflakes
-    python311Packages.isort
-    python311Packages.pytest
-    nodePackages.graphql-language-service-cli
-    kotlin-language-server
-    pipenv
-    clang-tools_17
-    ktlint
-    nixfmt-rfc-style
-    cargo
-    rustc
-    shfmt
-    editorconfig-core-c
-    fontconfig
-    gnuplot
-    pandoc
-    tree-sitter-grammars.tree-sitter-go
-    (tree-sitter.withPlugins (_: tree-sitter.allGrammars))
   ];
 
   home.sessionVariables = {
-    EDITOR = "emacsclient";
     DIRENV_WARN_TIMEOUT = "1m";
   };
 
-  home.sessionPath = [
-    "${config.home.homeDirectory}/.local/bin"
-    "${config.home.homeDirectory}/.config/emacs/bin"
-  ];
-
   home.file = {
-    ".config/doom/init.el".source = ./doom/init.el;
-    ".config/doom/packages.el".source = ./doom/packages.el;
-    ".config/doom/config.el".source = ./doom/config.el;
+    # ".config/zed/settings.json".source = ./zed/settings.json;
+    # ".config/zed/keymap.json".source = ./zed/keymap.json;
   };
 
   xdg.configFile = {
