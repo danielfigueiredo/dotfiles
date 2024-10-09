@@ -15,7 +15,8 @@
     "light": "One Light",
     "dark": "Atelier Cave Dark"
   },
-  "soft_wrap": "bounded",
+  "soft_wrap": "preferred_line_length",
+  "preferred_line_length": 100,
   "indent_guides": {
     "enabled": true,
     "coloring": "indent_aware"

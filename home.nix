@@ -62,11 +62,14 @@ in {
 
   home.sessionVariables = {
     DIRENV_WARN_TIMEOUT = "1m";
+    XDG_CONFIG_HOME = "$HOME/.config";
   };
 
   home.file = {
-    # ".config/zed/settings.json".source = ./zed/settings.json;
-    # ".config/zed/keymap.json".source = ./zed/keymap.json;
+    ".config/zed/settings.json".source = ./zed/settings.json;
+    ".config/zed/keymap.json".source = ./zed/keymap.json;
+    ".config/zed/tasks.json".source = ./zed/tasks.json;
+    ".config/lazygit/config.yml".source = ./lazygit/config.yml;
   };
 
   xdg.configFile = {
