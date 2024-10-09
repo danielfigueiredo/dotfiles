@@ -41,7 +41,7 @@
       "inlay_hints": {
         "enabled": true,
         "show_parameter_hints": true,
-        "show_other_hints": true,
+        "show_other_hints": false,
         "show_type_hints": false
       }
     }
@@ -80,14 +80,5 @@
     "button": true,
     "dock": "left",
     "git_status": true
-  },
-  "lsp": {
-    "rust-analyzer": {
-      "initialization_options": {
-        "cargo": {
-          "features": "all"
-        }
-      }
-    }
   }
 }

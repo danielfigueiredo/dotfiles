@@ -36,7 +36,9 @@
   {
     "context": "Workspace",
     "bindings": {
-      "cmd-ctrl-t": "workspace::NewCenterTerminal"
+      "cmd-ctrl-t": "workspace::NewCenterTerminal",
+      // LazyGit
+      "cmd-ctrl-g": ["task::Spawn", { "task_name": "Lazygit" }]
     }
   }
 ]

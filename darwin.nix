@@ -29,13 +29,14 @@
     };
     global = { brewfile = true; };
     brews = [
-      "docker-credential-helper-ecr"
       "adr-tools"
       "awscli"
       "cocoapods"
+      "docker-credential-helper-ecr"
       "gifski"
       "granted"
       "idb-companion"
+      "lazygit"
       "lefthook"
       "opa"
       "postgresql@14"
@@ -43,16 +44,16 @@
     ];
     casks = [
       "1password-cli"
-      "android-studio"
       "adobe-acrobat-reader"
       "airflow"
+      "android-studio"
       "chromium"
       "dbeaver-community"
       "discord"
       "firefox"
       "flipper"
-      "postman"
       "notion"
+      "postman"
       "raycast"
       "spotify"
       "steam"
@@ -67,6 +68,7 @@
       "homebrew/services"
       "hashicorp/tap"
       "facebook/fb"
+      "jesseduffield/lazygit"
     ];
   };
 }
