@@ -34,6 +34,12 @@
     }
   },
   {
+    "context": "Editor",
+    "bindings": {
+      "cmd-ctrl-l": "editor::RestartLanguageServer"
+    }
+  },
+  {
     "context": "Workspace",
     "bindings": {
       "cmd-ctrl-t": "workspace::NewCenterTerminal",
