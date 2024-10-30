@@ -50,6 +50,7 @@ in {
     maven
     microplane
     mise
+    nixd
     redis
     ripgrep
     selectedNerdfonts
