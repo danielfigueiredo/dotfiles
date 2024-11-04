@@ -4,10 +4,15 @@
   xdg.configFile."git/wealthsimple.gitconfig".text = ''
     [user]
     email = dfigueiredo@wealthsimple.com
+    signingkey = 5E4068D8B80EB62E
+  '';
+  xdg.configFile."git/personal.gitconfig".text = ''
+    [user]
+    signingkey = EB0D5DEF3F2B8AAC
   '';
   programs.git = {
     enable = true;
-    userName = "Dan Figueiredo";
+    userName = "Daniel Figueiredo";
     userEmail = "figdann@gmail.com";
     extraConfig = {
       github.user = "danielfigueiredo";
@@ -34,9 +39,15 @@
       ".lsp/"
       "*.iml"
     ];
-    includes = [{
-      path = "${config.xdg.configHome}/git/wealthsimple.gitconfig";
-      condition = "gitdir:~/code/ws/";
-    }];
+    includes = [
+        {
+            path = "${config.xdg.configHome}/git/wealthsimple.gitconfig";
+            condition = "gitdir:~/code/ws/";
+        }
+        {
+            path = "${config.xdg.configHome}/git/personal.gitconfig";
+            condition = "!gitdir:~/code/ws/";
+        }
+    ];
   };
 }
