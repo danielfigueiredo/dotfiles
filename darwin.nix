@@ -59,6 +59,7 @@
       "steam"
       "tuple"
       "vlc"
+      "visual-studio-code"
       "whatsapp"
       "zed"
     ];
