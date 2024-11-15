@@ -39,6 +39,7 @@
       "lazygit"
       "lefthook"
       "opa"
+      "pinentry-mac"
       "postgresql@14"
       "rustup"
     ];
