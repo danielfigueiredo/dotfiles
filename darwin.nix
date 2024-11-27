@@ -40,7 +40,7 @@
       "lefthook"
       "opa"
       "pinentry-mac"
-      "postgresql@14"
+      "postgresql@16"
       "rustup"
     ];
     casks = [
