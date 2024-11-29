@@ -7,13 +7,6 @@
 
   nix.configureBuildUsers = true;
 
-  fonts = {
-    packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-      inter
-    ];
-  };
-
   # We use Nix flakes
   # this makes nix.conf be auto-generated
   nix.extraOptions = "experimental-features = nix-command flakes";

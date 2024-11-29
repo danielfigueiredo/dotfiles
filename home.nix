@@ -1,10 +1,6 @@
 { pkgs, ... }:
 
-let
-  # prevents from bringin in > 2gb of fonts
-  selectedNerdfonts =
-    pkgs.nerdfonts.override { fonts = [ "FiraCode" "FiraMono" ]; };
-in {
+{
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "dfigueiredo";
@@ -53,7 +49,6 @@ in {
     nixd
     redis
     ripgrep
-    selectedNerdfonts
     shellcheck
     tree
     terraform

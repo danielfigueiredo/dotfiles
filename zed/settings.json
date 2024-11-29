@@ -16,7 +16,7 @@
     "dark": "Atelier Cave Dark"
   },
   "soft_wrap": "preferred_line_length",
-  "preferred_line_length": 100,
+  "preferred_line_length": 92,
   "indent_guides": {
     "enabled": true,
     "coloring": "indent_aware"
