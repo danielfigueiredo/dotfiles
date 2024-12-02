@@ -21,6 +21,12 @@
   {
     "context": "Editor",
     "bindings": {
+      "cmd-ctrl-l": "editor::RestartLanguageServer"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == 'normal'",
+    "bindings": {
       "cmd-ctrl-l": "editor::RestartLanguageServer",
       "space o l": "editor::OpenPermalinkToLine"
     }
