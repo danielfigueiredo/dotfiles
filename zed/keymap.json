@@ -15,7 +15,22 @@
       "d": "project_panel::Delete",
       "x": "project_panel::Cut",
       "c": "project_panel::Copy",
-      "p": "project_panel::Paste"
+      "p": "project_panel::Paste",
+      // Navigate between panel
+      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"]
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      // Navigate between panel
+      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"]
     }
   },
   {
@@ -25,20 +40,15 @@
     }
   },
   {
-    "context": "Editor && vim_mode == 'normal'",
+    "context": "Editor && vim_mode == normal",
     "bindings": {
-      "cmd-ctrl-l": "editor::RestartLanguageServer",
-      "space o l": "editor::OpenPermalinkToLine"
+      "space o l": "editor::OpenPermalinkToLine",
+      "space k p": "editor::CopyRelativePath"
     }
   },
   {
     "context": "Workspace",
     "bindings": {
-      // navigate between panel
-      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
-      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
-      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
-      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
       "cmd-ctrl-t": "workspace::NewCenterTerminal",
       // LazyGit
       "cmd-ctrl-g": ["task::Spawn", { "task_name": "Lazygit" }]
