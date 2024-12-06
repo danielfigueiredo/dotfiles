@@ -53,6 +53,7 @@
     tree
     terraform
     terragrunt
+    yq
     zsh-z
   ];
 
