@@ -27,6 +27,7 @@
     coreutils
     colima
     cmake
+    delta
     docker
     docker-compose
     docker-buildx
