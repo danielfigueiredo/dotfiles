@@ -35,9 +35,10 @@
     gh
     gnupg1
     gitleaks
-    kubernetes-helm
     jq
+    jujutsu
     just
+    kubernetes-helm
     k6
     kubectl
     kustomize
