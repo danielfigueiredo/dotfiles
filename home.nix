@@ -49,6 +49,7 @@
     microplane
     mise
     nixd
+    rainfrog
     redis
     ripgrep
     shellcheck
