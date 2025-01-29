@@ -56,7 +56,8 @@
   // File syntax highlighting
   "file_types": {
     "Dockerfile": ["Dockerfile", "Dockerfile.*"],
-    "JSON": ["json", "jsonc", "*.code-snippets"]
+    "JSON": ["json", "*.code-snippets"],
+    "JSONC": ["jsonc"]
   },
   // File scan exclusions, hide on the file explorer and search
   "file_scan_exclusions": [
