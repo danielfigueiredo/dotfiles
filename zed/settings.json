@@ -82,5 +82,14 @@
     "button": true,
     "dock": "left",
     "git_status": true
+  },
+  "lsp": {
+    "deno": {
+      "settings": {
+        "deno": {
+          "enable": true
+        }
+      }
+    }
   }
 }
